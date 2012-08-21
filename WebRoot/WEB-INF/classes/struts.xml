@@ -45,6 +45,37 @@
 			</result>
 		</action>
 		
+		<action name="ChannelPlay"
+					class="com.bStar.mportal.action.ChannelPlayAction">
+			<result name="success">
+				/channelPalyingJson.jsp
+			</result>
+		</action>
+		
+		<action name="ChannelList"
+					class="com.bStar.mportal.action.ChannelListAction">
+			<result name="success">
+				/channelPalyingJson.jsp
+			</result>
+		</action>
+		
+		<action name="ChannelSelect"
+					class="com.bStar.mportal.action.ChannelFindAction">
+			<result name="success">
+				/channelSelect.jsp
+			</result>
+		</action>
+		
+		<action name="AddEvent"
+					class="com.bStar.mportal.action.EventAddAction">
+			<result name="success">
+				/channel_edit.jsp
+			</result>
+		</action>
+		
+		
+		
+		
 		
 	</package>
 </struts>

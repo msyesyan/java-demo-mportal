@@ -19,4 +19,8 @@ public class CategoryServiceImpl implements CategoryService {
 		categoryDao.addChannel(CategoryId, channel);
 	}
 
+	public List<Category> findByChannelId(int channelId) throws Exception {
+		return categoryDao.findByChannelId(channelId);
+	}
+
 }

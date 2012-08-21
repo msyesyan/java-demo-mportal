@@ -5,29 +5,27 @@
 <div>
 	<div>
 		<h2>
-			频道列表
+			<a href = "#javascript:;" onclick="location='ChannelList.action'">频道列表</a>
 		</h2>
 		
-		<!--1级分类开始-->
+		
 			<s:iterator value="categorys">
 			<div>
 				<h3>
 					[${ categoryName }]&nbsp;
 					
 				</h3>
-				<ul">
-						<!--2级分类开始-->
+				<ul>
 						<s:iterator value="channels">
 						<li>
-							${ name }
+							<a href="#javascript:;" onclick="document.location='ChannelPlay.action?channelId=${channelId}'">${ name }</a>
 						</li>
 						</s:iterator>
-						<!--2级分类结束-->
-
+			
 				</ul>
 			</div>
 			</s:iterator>
-			<!--1级分类结束-->
+			
 	</div>
 </div>
 

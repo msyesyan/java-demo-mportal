@@ -1,9 +1,11 @@
 package com.bStar.mportal.pojo;
 
+import java.util.Date;
+
 public class Event {
 
 	private int eventId;
-	private long eventBeginTime;
+	private Date eventBeginTime;
 	private long eventDuration;
 	private EgpProduction egpProduction;
 	public int getEventId() {
@@ -12,12 +14,14 @@ public class Event {
 	public void setEventId(int eventId) {
 		this.eventId = eventId;
 	}
-	public long getEventBeginTime() {
+	
+	public Date getEventBeginTime() {
 		return eventBeginTime;
 	}
-	public void setEventBeginTime(long eventBeginTime) {
+	public void setEventBeginTime(Date eventBeginTime) {
 		this.eventBeginTime = eventBeginTime;
 	}
+	
 	public long getEventDuration() {
 		return eventDuration;
 	}

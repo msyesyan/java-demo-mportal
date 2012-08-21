@@ -11,17 +11,10 @@
 	</head>
 	<body>
 		&nbsp;
-		
-		<div>
-			
 			<div>
 				<s:action name="FindCategory" namespace="/api" executeResult="true"></s:action>
 			</div>
-			
-
-			<div class="clear"></div>
-		</div>
-
-		<input type="button" value="增加频道" onclick="document.location='mportal/addChannel.jsp'"/>
+		<input type="button" value="增加频道" onclick="document.location='/mportal/addChannel.jsp'"/>
+		<input type="button" value="增加节目" onclick="document.location='/mportal/channel_edit.jsp'"/>
 	</body>
 </html>

@@ -11,7 +11,7 @@
 	$(function(){
 		$('#category_select').change(function(){
 					//alert("hello");
-					var optionarray = $("select option:selected");
+					var optionarray = $("#category_select option:selected");
 					$("#category_name").html();
 					var str = "";
 					for(i = 0;i<optionarray.length;i++){
@@ -20,10 +20,25 @@
 					$("#category_name").val(str);
 				});
 	});
+	
+	function addResource(){
+		$("#firstSelect").next().next().next().after("<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select class='sourceSelect'><option>hls</option><option>http</option></select>&nbsp;资源地址<input/>");
+	}
+	
+	function allResource(){
+		$("#resource").val();
+		var sourceArray = $(".sourceSelect");
+		var str = "";
+		for(i = 0;i<sourceArray.length;i++){
+			str = str+$(sourceArray.get(i)).val()+"#"+$(sourceArray.get(i)).next().val()+"-";
+		}
+		$("#resource").val(str);
+	}
 </SCRIPT>
 </head>
 <body>
-	<form method ="post" action="api/AddChannel.action">
+
+	<form id = "form" method ="post" action="api/AddChannel.action">
 		频道Id<input type="text" name="id"/><br>
 		频道名称<input type="text" name="name"/><br>
 		
@@ -33,8 +48,12 @@
 			</div>
 		频道号     <input type="text" name="num"/><br>
 		频道logo<input type="text" name="logoUrl"/><br>
-		资源类型<input type="text" name="resourcesType"/><br>
-		资源地址<input type="text" name="resoucesUrl"/><br>
+		资源类型<input id="resource" type="text" name="resourceTU" readonly/><br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<select id="firstSelect" class="sourceSelect">
+			<option>hls</option>
+			<option>http</option>
+		</select>&nbsp;资源地址<input/><input type="button" value="+" onclick="addResource();">&nbsp<input type="button" value="OK" onclick="allResource();"><br>
 		节目地址<input type="text" name="programsEndPoint"/><br>
 		
 		<input type="submit" value="增加"/>

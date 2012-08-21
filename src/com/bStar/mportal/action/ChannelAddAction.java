@@ -1,6 +1,10 @@
 package com.bStar.mportal.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.bStar.mportal.pojo.Channel;
+import com.bStar.mportal.pojo.Resource;
 import com.bStar.mportal.service.CategoryService;
 import com.bStar.mportal.service.CategoryServiceImpl;
 import com.bStar.mportal.service.ChannelService;
@@ -12,8 +16,7 @@ public class ChannelAddAction {
 	private String name;
 	private int num;
 	private String logoUrl;
-	private String resourcesType;
-	private String resourcesUrl;
+	private String resourceTU;
 	private String programsEndPoint;
 	private String categoryName;
 	private ChannelService channelService = new ChannelServiceImpl();
@@ -22,26 +25,35 @@ public class ChannelAddAction {
 	public String execute() {
 
 		Channel channel = new Channel();
+		List<Resource>resources = new ArrayList<Resource>();
 		
 		try {
+			System.out.println("ResourceTU "+resourceTU);
+			String resourceStr[] = resourceTU.split("-");
+			
+			for(int i = 0;i<resourceStr.length;i++){
+				String resource[]=resourceStr[i].split("#");
+				Resource re = new Resource();
+				re.setType(resource[0]);
+				re.setUrl(resource[1]);
+				resources.add(re);
+			}
 			channel.setChannelId(id);
 			channel.setName(name);
 			channel.setNum(num);
-			channel.setResourcesType(resourcesType);
-			channel.setResourcesUrl(resourcesUrl);
 			channel.setLogoUrl(logoUrl);
 			channel.setProgramsEndPoint(programsEndPoint);
 			channel.setUpdated_at(System.currentTimeMillis());
-			channelService.save(channel);
+			channel.setResouces(resources);
+			
 			String[] str = categoryName.split("&");
-			System.out.println("categoryStr[]-"+str);
 			for(int i = 0;i<str.length;i++){
 				categoryService.addChannel(Integer.parseInt(str[i]), channel);
 			}
+			channelService.save(channel,resources);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return "success";
 	}
 
@@ -77,20 +89,14 @@ public class ChannelAddAction {
 		this.logoUrl = logoUrl;
 	}
 
-	public String getResourcesType() {
-		return resourcesType;
+
+
+	public String getResourceTU() {
+		return resourceTU;
 	}
 
-	public void setResourcesType(String resourcesType) {
-		this.resourcesType = resourcesType;
-	}
-
-	public String getResourcesUrl() {
-		return resourcesUrl;
-	}
-
-	public void setResourcesUrl(String resourcesUrl) {
-		this.resourcesUrl = resourcesUrl;
+	public void setResourceTU(String resourceTU) {
+		this.resourceTU = resourceTU;
 	}
 
 	public String getProgramsEndPoint() {

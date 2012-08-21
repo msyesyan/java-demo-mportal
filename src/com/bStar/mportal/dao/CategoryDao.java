@@ -8,4 +8,5 @@ import com.bStar.mportal.pojo.Channel;
 public interface CategoryDao {
 	List<Category> findAll()throws Exception;
 	void addChannel(int CategoryId,Channel channle)throws Exception;
+	List<Category> findByChannelId(int channelId)throws Exception;
 }
