@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="mportal"
+				   namespace="/api"
+				   extends="struts-default">
+		<interceptors>
+			<interceptor name="transaction" class="com.bStar.mportal.interceptor.TransactionInterceptor"/>
+			<interceptor-stack name="mportalStack">
+				<interceptor-ref name="transaction"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack></interceptors>
+		<default-interceptor-ref name="mportalStack"/>
+		
+		<action name="Regist"
+					class="com.bStar.mportal.action.RegistAction">
+			<result name="success">
+				/login.jsp
+			</result>
+		</action>
+		<action name="Login"
+					class="com.bStar.mportal.action.LoginAction">
+			<result name="success">
+				/channel_list.jsp
+			</result>
+		</action>
+		
+		<action name="FindCategory" method="execute"
+					class="com.bStar.mportal.action.CategoryFindAction">
+			<result name ="success">
+				/category_list.jsp
+			</result>			
+		</action>
+		<action name="CategorySelect" method="execute"
+					class="com.bStar.mportal.action.CategorySelectAction">
+			<result name ="success">
+				/channel_select.jsp
+			</result>			
+		</action>
+		
+		<action name="AddChannel"
+					class="com.bStar.mportal.action.ChannelAddAction">
+			<result name="success">
+				/channel_list.jsp
+			</result>
+		</action>
+		
+		
+	</package>
+</struts>
