@@ -1,64 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <employees> 
-<employee> 
-<name>ddviplinux</name> 
-<sex>m</sex> 
-<age>30</age>
-</employee> 
+	<employee> 
+		<name>ddviplinux</name> 
+		<sex>m</sex> 
+		<age>30</age>
+	</employee> 
 
-<employee> 
-<name>ross</name> 
-<sex>f</sex> 
-<age>20</age> 
-</employee> 
+	<employee> 
+		<name>ross</name> 
+		<sex>f</sex> 
+		<age>20</age> 
+	</employee> 
 
-<employee> 
-<name>ross</name> 
-<sex>f</sex> 
-<age>20</age> 
-</employee> 
+	<employee> 
+		<name>ross</name> 
+		<sex>f</sex> 
+		<age>20</age> 
+	</employee> 
 
+	<employee> 
+		<name>tom</name> 
+		<sex>m</sex> 
+		<age>10</age>
+	</employee> 
 
-<employee> 
-<name>tom</name> 
-<sex>m</sex> 
-<age>10</age>
-</employee> 
+	<employee> 
+		<name>jerry</name> 
+		<sex>f</sex> 
+		<age>9</age>
+	</employee>
 
-<employee> 
-<name>jerry</name> 
-<sex>f</sex> 
-<age>9</age>
-</employee>
-
-<employee> 
-<name>jerry</name> 
-<sex>f</sex> 
-<age>9</age>
-</employee>
- 
-
-
+	<employee> 
+		<name>jerry</name> 
+		<sex>f</sex> 
+		<age>9</age>
+	</employee>
+	
 </employees>
-
-<?xml version="1.0" encoding="UTF-8"?>
-
-<users>
-<Messages>
-<sendName>Jack</sendName>
-<receiveName>Ross</receiveName>
-<date>2007-12-04 12:20:00</date>
-<status>0</status>
-<message>this is Content</message>
-</Messages>
-
-<Messages>
-<sendName>Tom</sendName>
-<receiveName>Jerry</receiveName>
-<date>2007-12-04 12:20:00</date>
-<status>0</status>
-<message>this is another Content</message>
-</Messages>
-
-</users>
 
