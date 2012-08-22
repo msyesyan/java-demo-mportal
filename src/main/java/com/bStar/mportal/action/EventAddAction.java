@@ -22,7 +22,7 @@ public class EventAddAction {
 	private String type;
 	private String language;
 	private String name;
-	private String shortDescriptioin;
+	private String shortDescription;
 	//
 	private EventService eventService = new EventServiceImpl();
 	private ChannelService channelService = new ChannelServiceImpl();
@@ -33,14 +33,15 @@ public class EventAddAction {
 			//2011-09-09T05:16:00+08
 			System.out.println("进入节目提交action");
 			System.out.println("egp"+language);
-			System.out.println("egp"+shortDescriptioin);
+			System.out.println("egp"+shortDescription);
+			
 			System.out.println("egp"+name);
 			event.setEventId(id);
 			event.setEventBeginTime(DateUtil.parseDate(beginTime));
 			event.setEventDuration(Long.parseLong(duration));
 			egp.setLanguage(language);
 			egp.setName(name);
-			egp.setShortDescription(shortDescriptioin);
+			egp.setShortDescription(shortDescription);
 			event.setEgpProduction(egp);
 			System.out.println(event.getEgpProduction().getName());
 			String [] channelStrings = channelIdString.split("&");
@@ -99,11 +100,11 @@ public class EventAddAction {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getShortDescriptioin() {
-		return shortDescriptioin;
+	public String getShortDescription() {
+		return shortDescription;
 	}
-	public void setShortDescriptioin(String shortDescriptioin) {
-		this.shortDescriptioin = shortDescriptioin;
+	public void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
 	}
 	
 	
