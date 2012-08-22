@@ -32,9 +32,9 @@ public class EventAddAction {
 		try {
 			//2011-09-09T05:16:00+08
 			System.out.println("进入节目提交action");
-			System.out.println("channelId"+channelIdString);
-			System.out.println("beginTime"+beginTime);
 			System.out.println("egp"+language);
+			System.out.println("egp"+shortDescriptioin);
+			System.out.println("egp"+name);
 			event.setEventId(id);
 			event.setEventBeginTime(DateUtil.parseDate(beginTime));
 			event.setEventDuration(Long.parseLong(duration));
@@ -49,6 +49,7 @@ public class EventAddAction {
 				channels.add(channelService.findById(Integer.parseInt(str)));
 			}
 			eventService.save(event, channels);
+			System.out.println(event.getEgpProduction().getName());
 			System.out.println("节目提交完毕");
 		} catch (Exception e) {
 			e.printStackTrace();

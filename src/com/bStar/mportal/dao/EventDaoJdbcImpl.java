@@ -14,6 +14,8 @@ public class EventDaoJdbcImpl implements EventDao {
 	public static final String save ="insert into event values(?,?,?,?,?,?)";
 	public static final String saveChannel = "insert into channel_event(channel_id,event_id)values(?,?)";
 	public void save(Event event) throws Exception {
+		System.out.println("eventDao");
+		System.out.println(event.getEgpProduction().getShortDescription());
 		PreparedStatement prep = Dbutil.getConnection().prepareStatement(save,Statement.RETURN_GENERATED_KEYS);
 		prep.setInt(1,event.getEventId());
 		prep.setString(2,DateUtil.parseISO8601(event.getEventBeginTime()));
