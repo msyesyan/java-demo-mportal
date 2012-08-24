@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.bstar.mportal.dao.CategoryDao;
 import com.bstar.mportal.model.Category;
-import com.bstar.mportal.model.Channel;
 
 @Service
 public class CategoryService {
@@ -28,7 +27,7 @@ public class CategoryService {
 	}
 	
 	public Category findById(Integer id) throws Exception {
-		return categoryDao.findById(id);
+		return categoryDao.get(id);
 	}
 
 	public List<Category> findAll() throws Exception {
