@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	 
+	<package name="admin"
+				   namespace="/admin"
+				   extends="mportal">
+		<interceptors>
+			<interceptor name="transaction" class="com.bStar.mportal.interceptor.TransactionInterceptor"/>
+			<interceptor-stack name="mportalStack">
+				<interceptor-ref name="transaction"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack></interceptors>
+		<default-interceptor-ref name="mportalStack"/>
+		
+		
+		<action name="channels/new"	class="com.bStar.mportal.action.admin.ChannelsController" method="create">
+			<result name="new">/admin/channels/new.jsp</result>
+			<result name="create" type="redirect">/admin/channels/index</result>
+		</action>
+		
+		<action name="channels/index" class="com.bStar.mportal.action.admin.ChannelsController" method="index">
+			<result name="success">/admin/channels/index.jsp</result>
+		</action>
+		
+		<action name="channels/destroy" class="com.bStar.mportal.action.admin.ChannelsController" method="destroy">
+			<result name="destroy" type="redirect">/admin/channels/index</result>
+		</action>
+					
+		<action name="channels/edit" class="com.bStar.mportal.action.admin.ChannelsController" method="edit">
+			<result name="edit">/admin/channels/edit.jsp</result>
+			<result name="edited" type="redirect">/admin/channels/index</result>
+		</action>		
+		
+	</package>
+</struts>
