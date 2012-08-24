@@ -4,14 +4,27 @@
 	<constant name="struts.action.extension" value="action,json,," /> 
 	<constant name="struts.enable.SlashesInActionNames" value="true" />
 	<constant name="struts.convention.result.path" value="/WEB-INF/views/" />
+	<constant name="struts.convention.action.disableScanning" value="true" />
+	<constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
 	
 	
-	<include file="struts-admin.xml"/>
+	<package name="mportal" extends="struts-default">
+		<interceptors>
+			<interceptor name="transaction" class="com.bstar.mportal.interceptor.TransactionInterceptor"/>
+			<interceptor-stack name="mportalStack">
+				<interceptor-ref name="transaction"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="mportalStack"/>
+	</package>
 	
-	<package name="mportal" extends="json-default">
-		<action name="login" class="com.bstar.mportal.action.LoginAction">
+	<package name="root" extends="mportal">
+		<action name="/login" class="com.bstar.mportal.action.LoginAction">
 			<result name="input">/login.jsp</result>
-			<result name="success" type="redirect">/admin/channels/index</result>
+			<result name="success" type="redirect">/WEB-INF/views/admin/channels/index</result>
 		</action>	
 	</package>
+	
+	<include file="struts-admin.xml"/>
 </struts>

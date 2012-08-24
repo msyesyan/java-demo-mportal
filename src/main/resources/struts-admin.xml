@@ -3,22 +3,13 @@
 <struts>
 	 
 	<package name="admin" namespace="/admin" extends="mportal">
-		<interceptors>
-			<interceptor name="transaction" class="com.bstar.mportal.interceptor.TransactionInterceptor"/>
-			<interceptor-stack name="mportalStack">
-				<interceptor-ref name="transaction"/>
-				<interceptor-ref name="defaultStack"/>
-			</interceptor-stack></interceptors>
-		<default-interceptor-ref name="mportalStack"/>
-		
-		
 		<action name="channels/new" class="com.bstar.mportal.action.admin.ChannelsController" method="create">
-			<result name="new">/admin/channels/new.jsp</result>
+			<result name="new">/WEB-INF/views/admin/channels/new.jsp</result>
 			<result name="create" type="redirect">/admin/channels/index</result>
 		</action>
 		
 		<action name="channels/index" class="com.bstar.mportal.action.admin.ChannelsController" method="index">
-			<result name="success">/admin/channels/index.jsp</result>
+			<result name="success">/WEB-INF/views/admin/channels/index.jsp</result>
 		</action>
 		
 		<action name="channels/destroy" class="com.bstar.mportal.action.admin.ChannelsController" method="destroy">
@@ -26,16 +17,16 @@
 		</action>
 					
 		<action name="channels/edit" class="com.bstar.mportal.action.admin.ChannelsController" method="edit">
-			<result name="edit">/admin/channels/edit.jsp</result>
+			<result name="edit">/WEB-INF/views/admin/channels/edit.jsp</result>
 			<result name="edited" type="redirect">/admin/channels/index</result>
 		</action>
 		
 		<action name="categories/index" class="com.bstar.mportal.action.admin.CategoriesController" method="index">
-			<result name="index">/admin/categories/index.jsp</result>
+			<result name="index">/WEB-INF/views/admin/categories/index.jsp</result>
 		</action>
 		
 		<action name="categories/new" class="com.bstar.mportal.action.admin.CategoriesController" method="create">
-			<result name="new">/admin/categories/new.jsp</result>
+			<result name="new">/WEB-INF/views/admin/categories/new.jsp</result>
 			<result name="save" type="redirect">/admin/categories/index</result>
 		</action>
 		
@@ -44,7 +35,7 @@
 		</action>
 		
 		<action name="categories/edit" class="com.bstar.mportal.action.admin.CategoriesController" method="edit">
-			<result name="edit">/admin/categories/edit.jsp</result>
+			<result name="edit">/WEB-INF/views/admin/categories/edit.jsp</result>
 			<result name="edited" type="redirect">/admin/categories/index</result>
 		</action>
 		

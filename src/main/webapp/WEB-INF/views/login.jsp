@@ -1,23 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="css/bootstrap.css" rel="stylesheet">
-<title>用户登录</title>
-</head>
-<body>
-	<div class="navbar navbar-inverse navbar-static-top">
-			<div class="navbar-inner">
-				<div class="container">
-					<ul class="nav">
-						<li><a class="brand" href="#">用户登录</a></li>
-					</ul>
-				</div>
-			</div>
-	</div>
-	<form class="form-horizontal" style="margin-left:9%;padding-top:3%;" method ="post" action="login">
+<%@ page pageEncoding="UTF-8" %>
+<%@ include file="/WEB-INF/views/layouts/application_head.jsp" %>
+	<h1>用户登录</h1>
+	
+	<form method ="post" action="login">
     	<div class="control-group">
     		<label class="control-label" for="inputEmail">姓名</label>
    		 	<div class="controls">
@@ -39,5 +24,4 @@
     		</div>
     	</div>
     </form>
-</body>
-</html>
+<%@ include file="/WEB-INF/views/layouts/application_foot.jsp" %>

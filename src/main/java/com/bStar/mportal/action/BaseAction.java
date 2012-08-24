@@ -10,7 +10,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class BaseAction extends ActionSupport implements ServletRequestAware,
+public abstract class BaseAction extends ActionSupport implements ServletRequestAware,
 		SessionAware, RequestAware {
 	private static final long serialVersionUID = 1843220765959074907L;
 	protected HttpServletRequest request;

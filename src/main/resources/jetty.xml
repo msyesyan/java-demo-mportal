@@ -17,7 +17,7 @@
 				<Arg>.*</Arg>
 			</Call>
 			
-			<Set name="contextPath">/</Set>
+			<Set name="contextPath">/mportal</Set>
 			<Set name="war">src/main/webapp</Set>
 		</New>
 	</Set>

@@ -6,7 +6,9 @@ import com.bstar.mportal.action.BaseAction;
 import com.bstar.mportal.model.Category;
 import com.bstar.mportal.service.CategoryService;
 
-public class CategoriesController extends BaseAction{
+public class CategoriesController extends BaseAction {
+	
+	private static final long serialVersionUID = 7697381108725842445L;
 	
 	List<Category> categories;
 	Category category;
@@ -23,6 +25,8 @@ public class CategoriesController extends BaseAction{
 		if (request.getMethod().equals("GET")) {
 			return "new";
 		}
+		Category category = new Category();
+		category.setName(name);
 		categoryService.save(category);
 		return "save";
 	}
