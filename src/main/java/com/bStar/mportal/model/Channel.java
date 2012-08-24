@@ -9,7 +9,6 @@ public class Channel {
 	private String name;
 	private String logo;
 	
-	private List<Resource>resources;
 	private List<String>categorys;
 	
 	public Integer getId() {
@@ -41,12 +40,6 @@ public class Channel {
 	}
 	public void setCategorys(List<String> categorys) {
 		this.categorys = categorys;
-	}
-	public List<Resource> getResources() {
-		return resources;
-	}
-	public void setResouces(List<Resource> resources) {
-		this.resources = resources;
 	}
 	
 }

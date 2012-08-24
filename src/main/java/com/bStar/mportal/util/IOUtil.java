@@ -5,10 +5,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import com.bStar.mportal.model.Channel;
-import com.bStar.mportal.model.ChannelJson;
-
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 public class IOUtil {

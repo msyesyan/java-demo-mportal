@@ -6,20 +6,22 @@ import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
 public class TransactionInterceptor extends AbstractInterceptor {
 
+	private static final long serialVersionUID = 8145741152483958818L;
+
 	public String intercept(ActionInvocation invocation) throws Exception {
 		try {
-			// ´ò¿ªÊÂÎñ
+			// æ‰“å¼€äº‹åŠ¡
 			Dbutil.getConnection().setAutoCommit(false);
-			System.out.println("--¿ªÊ¼ÊÂÎñ--");
-			// µ÷ÓÃActionºÍResult
+			System.out.println("--å¼€å§‹äº‹åŠ¡--");
+			// è°ƒç”¨Actionå’ŒResult
 			String resultCode = invocation.invoke();
-			// Ìá½»ÊÂÎñ»ò»Ø¹ö
+			// æäº¤äº‹åŠ¡æˆ–å›æ»š
 			Dbutil.getConnection().commit();
-			System.out.println("--Ìá½»ÊÂÎñ--");
+			System.out.println("--æäº¤äº‹åŠ¡--");
 			return resultCode;
 		} catch (Exception e) {
 			Dbutil.getConnection().rollback();
-			System.out.println("--»Ø¹öÊÂÎñ--");
+			System.out.println("--å›æ»šäº‹åŠ¡--");
 			e.printStackTrace();
 			return "fail";
 		} finally {

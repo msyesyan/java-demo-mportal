@@ -44,29 +44,32 @@
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-nested</artifactId>
-			<version>7.6.5.v20120716</version>
+			<version>${jetty-version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-servlets</artifactId>
-			<version>7.6.5.v20120716</version>
+			<version>${jetty-version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-webapp</artifactId>
-			<version>7.6.5.v20120716</version>
+			<version>${jetty-version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-jsp</artifactId>
-			<version>7.6.5.v20120716</version>
+			<version>${jetty-version}</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 	<build>
 		<finalName>mportal</finalName>
 	</build>
+	<properties>
+		<jetty-version>8.1.5.v20120716</jetty-version>
+	</properties>
 </project>

@@ -1,6 +1,5 @@
 package com.bStar.mportal.util;
 
-import java.io.File;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -12,7 +11,6 @@ import org.apache.commons.dbcp.BasicDataSourceFactory;
 
 public class Dbutil {
 	private static DataSource myDataSource = null;
-	// 将某一个对象与当前线程绑定在一起
 	private static ThreadLocal<Connection> connLocal = new ThreadLocal<Connection>();
 
 	private Dbutil() {

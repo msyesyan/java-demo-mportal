@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.bStar.mportal.action.BaseAction;
 import com.bStar.mportal.model.Channel;
-import com.bStar.mportal.service.CategoryService;
 import com.bStar.mportal.service.ChannelService;
 
 public class ChannelsController extends BaseAction {
@@ -24,7 +23,6 @@ public class ChannelsController extends BaseAction {
 	
 	// service
 	private ChannelService channelService = new ChannelService();
-	private CategoryService categoryService = new CategoryService();
 
 	public String index() throws Exception {
 		System.out.println("enterChannelAction");

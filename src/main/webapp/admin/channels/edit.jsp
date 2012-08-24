@@ -6,10 +6,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>编辑频道信息</title>
-	<link href="../../css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href="../../css/bootstrap.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
 	<script src="../../js/myjs.js" type="text/javascript"></script>
-	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/bootstrap.js"></script>
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-static-top">

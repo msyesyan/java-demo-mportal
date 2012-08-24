@@ -1,8 +1,6 @@
 package com.bStar.mportal.service;
 
-import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.TimerTask;
 
@@ -20,19 +18,8 @@ public class Server {
 			System.out.println("type:"+conn.getContentType());
 			System.out.println("size:"+conn.getConnectTimeout());
 		}
-		
-		/*
-		Timer timer = new Timer();
-		//在1秒后执行任务，每次间隔10分钟
-		timer.schedule(new MyTask(), 1000, 1000*60*10);
-		while(true){
-			try {
-				
-			} catch (Exception e) {
-			}
-		}
-		*/
 	}
+	
 	static class MyTask extends TimerTask{
 
 		public void run() {
