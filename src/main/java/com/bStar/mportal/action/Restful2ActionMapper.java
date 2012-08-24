@@ -1,4 +1,4 @@
-package com.bStar.mportal.action;
+package com.bstar.mportal.action;
 
 import javax.servlet.http.HttpServletRequest;
 

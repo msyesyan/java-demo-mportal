@@ -1,4 +1,4 @@
-package com.bStar.mportal.dao;
+package com.bstar.mportal.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,8 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bStar.mportal.model.Channel;
-import com.bStar.mportal.util.Dbutil;
+import com.bstar.mportal.model.Channel;
+import com.bstar.mportal.util.Dbutil;
 
 public class ChannelDao {
 

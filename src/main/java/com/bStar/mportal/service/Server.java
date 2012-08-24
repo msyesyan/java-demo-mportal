@@ -1,4 +1,4 @@
-package com.bStar.mportal.service;
+package com.bstar.mportal.service;
 
 import java.net.HttpURLConnection;
 import java.net.URL;

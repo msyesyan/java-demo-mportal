@@ -1,4 +1,4 @@
-package com.bStar.mportal.util;
+package com.bstar.mportal.util;
 
 import java.io.InputStream;
 import java.sql.Connection;
@@ -8,6 +8,7 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.BasicDataSourceFactory;
+
 
 public class Dbutil {
 	private static DataSource myDataSource = null;

@@ -1,4 +1,4 @@
-package com.bStar.mportal.util;
+package com.bstar.mportal.util;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

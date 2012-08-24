@@ -1,29 +1,26 @@
-package com.bStar.mportal.model;
+package com.bstar.mportal.model;
 
 import java.util.List;
 
 public class Category {
-	private int categoryId;
-	private String categoryName;
-	private List<Channel>channels;
-	public int getCategoryId() {
-		return categoryId;
+	private int id;
+	private String name;
+
+	// private List<Channel>channels;
+	public int getId() {
+		return id;
 	}
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getCategoryName() {
-		return categoryName;
+
+	public String getName() {
+		return name;
 	}
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public List<Channel> getChannels() {
-		return channels;
-	}
-	public void setChannels(List<Channel> channels) {
-		this.channels = channels;
-	}
-	
-	
+
 }

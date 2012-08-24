@@ -1,8 +1,8 @@
-package com.bStar.mportal.service;
+package com.bstar.mportal.service;
 
-import com.bStar.mportal.dao.UserDao;
-import com.bStar.mportal.dao.UserDaoJdbcImpl;
-import com.bStar.mportal.model.User;
+import com.bstar.mportal.dao.UserDao;
+import com.bstar.mportal.dao.UserDaoJdbcImpl;
+import com.bstar.mportal.model.User;
 
 public class UserService {
 

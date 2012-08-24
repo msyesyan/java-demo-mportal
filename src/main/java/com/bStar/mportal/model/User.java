@@ -1,4 +1,4 @@
-package com.bStar.mportal.model;
+package com.bstar.mportal.model;
 
 public class User {
 	private int id;

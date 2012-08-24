@@ -1,4 +1,4 @@
-package com.bStar.mportal.action;
+package com.bstar.mportal.action;
 
 import java.util.Map;
 
@@ -10,9 +10,9 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-
-public class BaseAction extends ActionSupport implements ServletRequestAware, SessionAware, RequestAware {
-
+public class BaseAction extends ActionSupport implements ServletRequestAware,
+		SessionAware, RequestAware {
+	private static final long serialVersionUID = 1843220765959074907L;
 	protected HttpServletRequest request;
 	protected Map<String, Object> session;
 	protected Map<String, Object> params;
@@ -29,5 +29,4 @@ public class BaseAction extends ActionSupport implements ServletRequestAware, Se
 		this.params = request;
 	}
 
-	
 }

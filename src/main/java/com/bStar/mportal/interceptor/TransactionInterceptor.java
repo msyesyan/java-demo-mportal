@@ -1,6 +1,6 @@
-package com.bStar.mportal.interceptor;
+package com.bstar.mportal.interceptor;
 
-import com.bStar.mportal.util.Dbutil;
+import com.bstar.mportal.util.Dbutil;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 

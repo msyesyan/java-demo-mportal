@@ -12,38 +12,36 @@
 	</head>
 	<body>
 		<div class="navbar navbar-inverse navbar-static-top">
-			<div class="navbar-inner">
-				<div class="container">
-					<ul class="nav">
-						<li><a class="brand" href="#">频道管理</a></li>
-					</ul>
+    		<div class="navbar-inner">
+    			<div class="container">
+					<a class="brand" href="#">直播管理系统</a>
+    				<ul class="nav">
+						<li><a href="/admin/channels/index">频道管理</a></li>
+						<li class="active"><a href="/admin/categorys/index">类别管理</a></li>
+   					 </ul>
 				</div>
-			</div>
-		</div>
+    		</div>
+    	</div>
 		<div class="container">
-			<h1>频道列表</h1>
+			<h1>类别列表</h1>
 			
 			<table class="table table-bordered">
     			<thead>
     				<tr>
-    					<th>频道名称</th>
-    					<th>频道号</th>
-    					<th>所属类别</th>
+    					<th>类别名称</th>
     					<th></th>
     				</tr>
     			</thead>
     			<tbody>
-   					<s:iterator value="channels">
+   					<s:iterator value="categories">
    					<tr>
    						<td>${name}</td>
-   						<td>${num}</td>
-   						<td>所属类别</td>
    						<td>
    							<a class="btn" href="edit?id=${id}">编辑</a>
-							<form method="post" action="/admin/channels/destroy" style="display: inline">
+							<form method="post" action="/admin/categories/destroy" style="display: inline">
 								<input type="hidden" name="id" value="${id}"/>
 								<input type="submit" class="btn" value="删除"/>
-							</form>    							
+							</form>
    						</td>
    					</tr>
    					</s:iterator>
@@ -51,7 +49,7 @@
     		</table>
     		
     		<div class="well">
-    			<a class="btn btn-primary" href="new">新增频道</a>
+    			<a class="btn btn-primary" href="new">新增类别</a>
 			</div>
     		
 		</div>

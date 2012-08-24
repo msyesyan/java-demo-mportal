@@ -1,6 +1,6 @@
-package com.bStar.mportal.dao;
+package com.bstar.mportal.dao;
 
-import com.bStar.mportal.model.User;
+import com.bstar.mportal.model.User;
 
 public interface UserDao {
 	void save(User user)throws Exception;

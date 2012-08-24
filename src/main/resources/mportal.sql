@@ -13,6 +13,17 @@ create table channel(
 	logo varchar(200)
 )default charset utf8;
 
+create table category (
+	id int primary key auto_increment,
+	name varchar(50)
+)default charset utf8;
+
+create table category_channel(
+	id int primary key auto_increment,
+	channel_id int,
+	category_id int
+)default charset utf8;
+
 create table resource(
 	id int primary key,
 	type varchar(20),
@@ -56,10 +67,7 @@ create table channel_event(
 	event_id int
 );
 
-create table category (
-	category_id int primary key,
-	category_name varchar(50)
-)default charset utf8;
+
 
 insert into category values(100,'����');
 

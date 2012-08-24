@@ -1,10 +1,10 @@
-package com.bStar.mportal.dao;
+package com.bstar.mportal.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.bStar.mportal.model.User;
-import com.bStar.mportal.util.Dbutil;
+import com.bstar.mportal.model.User;
+import com.bstar.mportal.util.Dbutil;
 
 public class UserDaoJdbcImpl implements UserDao{
 	

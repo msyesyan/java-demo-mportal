@@ -1,13 +1,14 @@
-package com.bStar.mportal.action.admin;
+package com.bstar.mportal.action.admin;
 
 import java.util.List;
 
-import com.bStar.mportal.action.BaseAction;
-import com.bStar.mportal.model.Channel;
-import com.bStar.mportal.service.ChannelService;
+import com.bstar.mportal.action.BaseAction;
+import com.bstar.mportal.model.Channel;
+import com.bstar.mportal.service.ChannelService;
 
 public class ChannelsController extends BaseAction {
 
+	private static final long serialVersionUID = -8169661582549242945L;
 	// index param
 	private int categoryId;
 	private List<Channel> channels;

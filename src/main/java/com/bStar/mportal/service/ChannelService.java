@@ -1,13 +1,13 @@
-package com.bStar.mportal.service;
+package com.bstar.mportal.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.jetty.util.resource.Resource;
 
-import com.bStar.mportal.dao.ChannelDao;
-import com.bStar.mportal.model.Category;
-import com.bStar.mportal.model.Channel;
+import com.bstar.mportal.dao.ChannelDao;
+import com.bstar.mportal.model.Category;
+import com.bstar.mportal.model.Channel;
 
 public class ChannelService {
 
@@ -32,16 +32,6 @@ public class ChannelService {
 
 	public List<Channel> findAll() throws Exception {
 		List<Channel>channels =  channelDao.findAll();
-		for(int i = 0;i<channels.size();i++){
-			List<Category>categorys = categoryService.findByChannelId(channels.get(i).getId()); 
-			
-			List<String>categoryName = new ArrayList<String>();
-			for(Category ce : categorys){
-				categoryName.add(ce.getCategoryName());
-			}
-			channels.get(i).setCategorys(categoryName);
-		}
-		
 		return channels;
 	}
 	

@@ -2,11 +2,14 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<constant name="struts.action.extension" value="action,json,," /> 
-	<constant name="struts.enable.SlashesInActionNames" value="true"></constant>
+	<constant name="struts.enable.SlashesInActionNames" value="true" />
+	<constant name="struts.convention.result.path" value="/WEB-INF/views/" />
+	
+	
 	<include file="struts-admin.xml"/>
 	
 	<package name="mportal" extends="json-default">
-		<action name="login" class="com.bStar.mportal.action.LoginAction">
+		<action name="login" class="com.bstar.mportal.action.LoginAction">
 			<result name="input">/login.jsp</result>
 			<result name="success" type="redirect">/admin/channels/index</result>
 		</action>	

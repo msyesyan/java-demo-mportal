@@ -1,4 +1,4 @@
-package com.bStar.mportal.model;
+package com.bstar.mportal.model;
 
 import java.util.List;
 

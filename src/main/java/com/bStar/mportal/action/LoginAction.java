@@ -1,10 +1,12 @@
-package com.bStar.mportal.action;
+package com.bstar.mportal.action;
 
-import com.bStar.mportal.action.BaseAction;
-import com.bStar.mportal.model.User;
-import com.bStar.mportal.service.UserService;
+import com.bstar.mportal.action.BaseAction;
+import com.bstar.mportal.model.User;
+import com.bstar.mportal.service.UserService;
 
 public class LoginAction extends BaseAction {
+	 
+	private static final long serialVersionUID = 3978190073352318498L;
 	// input
 	private String name;
 	private String password;
