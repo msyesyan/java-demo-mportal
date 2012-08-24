@@ -1,100 +1,126 @@
 package com.bstar.mportal.dao;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
+
 import com.bstar.mportal.model.Category;
-import com.bstar.mportal.util.Dbutil;
 
-public class CategoryDao {
+@Repository
+public class CategoryDao extends BaseHibernateDao {
+	private static final Logger log = LoggerFactory
+			.getLogger(CategoryDao.class);
 
-	public static String save = "insert into category (name) values(?)";
-	public static String delete = "delete from category where id = ?";
-	public static String update = "update category set name = ? where id = ?";
-	public static String findById = "select * from category where id = ?";
-	public static String findAll = "select * from category";
-	/*
-	 * save
-	 */
-	public void save(Category category) throws Exception {
-		PreparedStatement prep = Dbutil.getConnection().prepareStatement(save);
-		prep.setString(1, category.getName());
-		prep.executeUpdate();
-	}
-	/*
-	 * delete
-	 */
-	public void delete(Category category) throws Exception {
-		PreparedStatement prep = Dbutil.getConnection()
-				.prepareStatement(delete);
-		prep.setInt(1, category.getId());
-		prep.executeUpdate();
-	}
-	/*
-	 * update
-	 */
-	public void update(Category category) throws Exception {
-		PreparedStatement prep = Dbutil.getConnection().prepareStatement(update);
-		prep.setString(1, category.getName());
-		prep.setInt(2, category.getId());
-		prep.executeUpdate();
-	}
-	/*
-	 * findById
-	 */
-	public Category findById(Integer id) throws Exception {
-		PreparedStatement prep = Dbutil.getConnection().prepareStatement(
-				findById);
-		prep.setInt(1, id);
-		ResultSet rs = prep.executeQuery();
-		Category category = null;
-		if (rs.next()) {
-			category = new Category();
-			category.setId(rs.getInt("id"));
-			category.setName(rs.getString("name"));
+	public static final String NAME = "name";
+
+	public void save(Category transientInstance) {
+		log.debug("saving Category instance");
+		try {
+			getSession().save(transientInstance);
+			log.debug("save successful");
+		} catch (RuntimeException re) {
+			log.error("save failed", re);
+			throw re;
 		}
-		return category;
 	}
 
-	/*
-	 * findAll
-	 */
-	public List<Category> findAll() throws Exception {
-		ResultSet rs = Dbutil.getConnection().createStatement()
-				.executeQuery(findAll);
-		List<Category> lists = new ArrayList<Category>();
-		while (rs.next()) {
-			Category category = new Category();
-			category.setId(rs.getInt("id"));
-			category.setName(rs.getString("name"));
-			lists.add(category);
+	public void delete(Category persistentInstance) {
+		log.debug("deleting Category instance");
+		try {
+			getSession().delete(persistentInstance);
+			log.debug("delete successful");
+		} catch (RuntimeException re) {
+			log.error("delete failed", re);
+			throw re;
 		}
-		return lists;
 	}
 
-	// public void addChannel(int CategoryId, Channel channle) throws Exception
-	// {
-	// PreparedStatement prep =
-	// Dbutil.getConnection().prepareStatement(addChannel);
-	// System.out.println("hello+ "+channle.getId());
-	// prep.setInt(1, channle.getId());
-	// prep.setInt(2,CategoryId);
+	public Category findById(java.lang.Integer id) {
+		log.debug("getting Category instance with id: " + id);
+		try {
+			Category instance = (Category) getSession().get(
+					"com.bstar.mportal.model.Category", id);
+			return instance;
+		} catch (RuntimeException re) {
+			log.error("get failed", re);
+			throw re;
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Category> findAll() {
+		log.debug("finding all Category instances");
+		try {
+			String queryString = "from Category";
+			Query queryObject = getSession().createQuery(queryString);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
+	
+	public void update(Category category){
+		log.debug("update a Category instance");
+		try {
+			getSession().update(category);
+		} catch (RuntimeException e) {
+			log.error("update failed",e);
+			throw e;
+		}
+	}
+
+
+	// public static String save = "insert into category (name) values(?)";
+	// public static String delete = "delete from category where id = ?";
+	// public static String update =
+	// "update category set name = ? where id = ?";
+	// public static String findById = "select * from category where id = ?";
+	// public static String findAll = "select * from category";
+	//
+	// public void save(Category category) throws Exception {
+	// PreparedStatement prep = Dbutil.getConnection().prepareStatement(save);
+	// prep.setString(1, category.getName());
 	// prep.executeUpdate();
 	// }
-
-	// public List<Category> findByChannelId(int channelId) throws Exception {
-	// List <Category>lists = new ArrayList<Category>();
-	// PreparedStatement prep =
-	// Dbutil.getConnection().prepareStatement(findByChannelId);
-	// prep.setInt(1, channelId);
+	// public void delete(Category category) throws Exception {
+	// PreparedStatement prep = Dbutil.getConnection()
+	// .prepareStatement(delete);
+	// prep.setInt(1, category.getId());
+	// prep.executeUpdate();
+	// }
+	// public void update(Category category) throws Exception {
+	// PreparedStatement prep = Dbutil.getConnection().prepareStatement(update);
+	// prep.setString(1, category.getName());
+	// prep.setInt(2, category.getId());
+	// prep.executeUpdate();
+	// }
+	// public Category findById(Integer id) throws Exception {
+	// PreparedStatement prep = Dbutil.getConnection().prepareStatement(
+	// findById);
+	// prep.setInt(1, id);
 	// ResultSet rs = prep.executeQuery();
-	// while(rs.next()){
-	// Category ca = new Category();
-	// ca.setCategoryId(rs.getInt("category_id"));
-	// ca.setCategoryName(rs.getString("category_name"));
-	// lists.add(ca);
+	// Category category = null;
+	// if (rs.next()) {
+	// category = new Category();
+	// category.setId(rs.getInt("id"));
+	// category.setName(rs.getString("name"));
+	// }
+	// return category;
+	// }
+	//
+	// public List<Category> findAll() throws Exception {
+	// ResultSet rs = Dbutil.getConnection().createStatement()
+	// .executeQuery(findAll);
+	// List<Category> lists = new ArrayList<Category>();
+	// while (rs.next()) {
+	// Category category = new Category();
+	// category.setId(rs.getInt("id"));
+	// category.setName(rs.getString("name"));
+	// lists.add(category);
 	// }
 	// return lists;
 	// }

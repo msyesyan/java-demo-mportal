@@ -2,13 +2,18 @@ package com.bstar.mportal.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.bstar.mportal.dao.CategoryDao;
 import com.bstar.mportal.model.Category;
 import com.bstar.mportal.model.Channel;
 
+@Service
 public class CategoryService {
 
-	CategoryDao categoryDao = new CategoryDao();
+	@Autowired
+	CategoryDao categoryDao;
 
 	public void save(Category category) throws Exception {
 		categoryDao.save(category);

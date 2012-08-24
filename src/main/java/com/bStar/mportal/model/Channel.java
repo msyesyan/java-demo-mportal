@@ -1,15 +1,20 @@
 package com.bstar.mportal.model;
 
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class Channel {
 	
+	@Id @GeneratedValue
 	private Integer id;
-	private Integer num;
-	private String name;
-	private String logo;
 	
-	private List<String>categorys;
+	private Integer num;
+	
+	private String name;
+	
+	private String logo;
 	
 	public Integer getId() {
 		return id;
@@ -34,12 +39,6 @@ public class Channel {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public List<String> getCategorys() {
-		return categorys;
-	}
-	public void setCategorys(List<String> categorys) {
-		this.categorys = categorys;
 	}
 	
 }

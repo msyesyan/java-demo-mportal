@@ -23,7 +23,7 @@ public class ChannelsController extends BaseAction {
 	//delete
 	
 	// service
-	private ChannelService channelService = new ChannelService();
+	private ChannelService channelService;
 
 	public String index() throws Exception {
 		System.out.println("enterChannelAction");
@@ -50,10 +50,8 @@ public class ChannelsController extends BaseAction {
 	public String destroy()throws Exception {
 		System.out.println("deleteAction");
 		Channel channel = channelService.findById(id);
-		if(channelService.delete(channel)){
-			return "destroy";
-		}
-		return "destroyed";
+		channelService.delete(channel);
+		return "destroy";
 	}
 	
 	public String edit()throws Exception {
@@ -144,6 +142,10 @@ public class ChannelsController extends BaseAction {
 
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
+	}
+
+	public void setChannelService(ChannelService channelService) {
+		this.channelService = channelService;
 	}
 
 }

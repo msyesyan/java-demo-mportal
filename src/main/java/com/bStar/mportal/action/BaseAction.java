@@ -7,9 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
+import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+@Controller
 public abstract class BaseAction extends ActionSupport implements ServletRequestAware,
 		SessionAware, RequestAware {
 	private static final long serialVersionUID = 1843220765959074907L;

@@ -1,22 +1,21 @@
 package com.bstar.mportal.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.jetty.util.resource.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.bstar.mportal.dao.ChannelDao;
-import com.bstar.mportal.model.Category;
 import com.bstar.mportal.model.Channel;
 
+@Service
 public class ChannelService {
 
-	private ChannelDao channelDao = new ChannelDao();
+	@Autowired
+	private ChannelDao channelDao;
 	private CategoryService categoryService = new CategoryService();
-	public List<Channel> findByCategoryId(int id) throws Exception {
-		return channelDao.findByCategoryId(id);
-	}
-
+	
 	public void save(Channel channel) throws Exception {
 		channelDao.save(channel);
 	}
@@ -35,13 +34,8 @@ public class ChannelService {
 		return channels;
 	}
 	
-	public boolean delete(Channel channel) throws Exception{
-		if(findById(channel.getId())!=null){
-			channelDao.delete(channel.getId());
-			return true;
-		}
-		return false;
-		
+	public void delete(Channel channel) throws Exception{
+			channelDao.delete(channel);
 	}
 
 	public void edit(Channel channel) throws Exception{

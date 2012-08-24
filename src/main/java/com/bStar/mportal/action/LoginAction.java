@@ -1,9 +1,12 @@
 package com.bstar.mportal.action;
 
+import org.springframework.stereotype.Controller;
+
 import com.bstar.mportal.action.BaseAction;
 import com.bstar.mportal.model.User;
 import com.bstar.mportal.service.UserService;
 
+@Controller
 public class LoginAction extends BaseAction {
 	 
 	private static final long serialVersionUID = 3978190073352318498L;
@@ -14,6 +17,8 @@ public class LoginAction extends BaseAction {
 	private UserService userService = new UserService();
 
 	public String execute() throws Exception {
+		
+		System.out.println("enterLoginAction");
 
 		if (request.getMethod().equals("POST")) {
 			User user = userService.findByName(name);
