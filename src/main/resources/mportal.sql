@@ -7,12 +7,10 @@ create table user(
 );
 
 create table channel(
-	id int primary key,
+	id int primary key auto_increment,
 	num int,
 	name varchar(50),
-	updated_at long,
-	logo_url varchar(200),
-	programs_endpoint varchar(200)
+	logo varchar(200)
 )default charset utf8;
 
 create table resource(
@@ -33,7 +31,7 @@ insert into resource(id,type,url)
 insert into channel_resource(channel_id,resource_id)
 	values(10000,1);
 insert into channel values(10000,1,
-						   'ÑëÊÓ1Ì×',
+						   'ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½',
 						   now(),
 						   'http://58.196.13.15/sitv/channel/1.png',
 						    '/live/channels/10000/programs.json'
@@ -63,9 +61,9 @@ create table category (
 	category_name varchar(50)
 )default charset utf8;
 
-insert into category values(100,'ÑëÊÓ');
+insert into category values(100,'ï¿½ï¿½ï¿½ï¿½');
 
-insert into category values(200,'ÐÂÎÅ');
+insert into category values(200,'ï¿½ï¿½ï¿½ï¿½');
 
 
 create table channel_category(
@@ -77,11 +75,14 @@ insert into channel_category (channel_id,category_id) values(10000,100);
 insert into channel_category (channel_id,category_id) values(10000,200);
 
 
-//É¾³ý±í²âÊÔÓÃ
+//É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 delete from channel where id <> 10000;
 delete from channel_category where channel_id <> 10000;
 delete from resource where id not in (1,2);
 delete from channel_resource where channel_id <>1;
+
+
+
 
 
 	

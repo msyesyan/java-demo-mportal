@@ -3,7 +3,7 @@ package com.bStar.mportal.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.bStar.mportal.pojo.User;
+import com.bStar.mportal.model.User;
 import com.bStar.mportal.util.Dbutil;
 
 public class UserDaoJdbcImpl implements UserDao{

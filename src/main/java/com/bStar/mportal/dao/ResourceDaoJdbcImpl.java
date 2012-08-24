@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bStar.mportal.pojo.Resource;
+import com.bStar.mportal.model.Resource;
 import com.bStar.mportal.util.Dbutil;
 import com.mysql.jdbc.Statement;
 
