@@ -33,11 +33,10 @@ public class ChannelsController extends BaseAction {
 
 	public String create() throws NumberFormatException, Exception {
 
-		System.out.println("newChannelAction");
 		if (request.getMethod().equals("GET")) {
 			return "new";
 		}
-		System.out.println("newChannelActionNotGet");
+		
 		Channel channel = new Channel();
 		channel.setName(name);
 		channel.setNum(num);

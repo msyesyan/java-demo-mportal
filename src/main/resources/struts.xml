@@ -7,23 +7,14 @@
 	<constant name="struts.convention.action.disableScanning" value="true" />
 	<constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
 	
-	<constant name="struts.objectFactory" value="struts" />
-	
 	<package name="mportal" extends="struts-default">
-		<interceptors>
-			<interceptor-stack name="dangStack">
-				<interceptor-ref name="autowiring"/>
-				<interceptor-ref name="defaultStack"/>
-			</interceptor-stack>
-		</interceptors>
-		<default-interceptor-ref name="dangStack"/>
 		
 	</package>
 	
 	<package name="root" extends="mportal">
 		<action name="/login" class="com.bstar.mportal.action.LoginAction">
-			<result name="input">/login.jsp</result>
-			<result name="success" type="redirect">/WEB-INF/views/admin/channels/index</result>
+			<result name="input">/WEB-INF/views/login.jsp</result>
+			<result name="success" type="redirect">/admin/channels/index</result>
 		</action>
 	</package>
 	

@@ -14,14 +14,13 @@ public class ChannelService {
 
 	@Autowired
 	private ChannelDao channelDao;
-	private CategoryService categoryService = new CategoryService();
 	
 	public void save(Channel channel) throws Exception {
 		channelDao.save(channel);
 	}
 
 	public Channel findById(int channelId) throws Exception {
-		 Channel channel = channelDao.findById(channelId);
+		 Channel channel = channelDao.get(channelId);
 		 return channel;
 	}
 

@@ -3,12 +3,14 @@ package com.bstar.mportal.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity
+@Entity @Table(name="users")
 public class User {
 	
 	@Id @GeneratedValue
 	private int id;
+	
 	private String name;
 	private String password;
 	

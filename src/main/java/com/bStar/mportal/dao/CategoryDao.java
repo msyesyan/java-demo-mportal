@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.bstar.mportal.model.Category;
 
 @Repository
-public class CategoryDao extends BaseHibernateDao {
+public class CategoryDao extends EntryDao<Category> {
 	private static final Logger log = LoggerFactory
 			.getLogger(CategoryDao.class);
 
@@ -19,7 +19,7 @@ public class CategoryDao extends BaseHibernateDao {
 	public void save(Category transientInstance) {
 		log.debug("saving Category instance");
 		try {
-			getSession().save(transientInstance);
+			currentSession().save(transientInstance);
 			log.debug("save successful");
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
@@ -30,7 +30,7 @@ public class CategoryDao extends BaseHibernateDao {
 	public void delete(Category persistentInstance) {
 		log.debug("deleting Category instance");
 		try {
-			getSession().delete(persistentInstance);
+			currentSession().delete(persistentInstance);
 			log.debug("delete successful");
 		} catch (RuntimeException re) {
 			log.error("delete failed", re);
@@ -41,7 +41,7 @@ public class CategoryDao extends BaseHibernateDao {
 	public Category findById(java.lang.Integer id) {
 		log.debug("getting Category instance with id: " + id);
 		try {
-			Category instance = (Category) getSession().get(
+			Category instance = (Category) currentSession().get(
 					"com.bstar.mportal.model.Category", id);
 			return instance;
 		} catch (RuntimeException re) {
@@ -55,7 +55,7 @@ public class CategoryDao extends BaseHibernateDao {
 		log.debug("finding all Category instances");
 		try {
 			String queryString = "from Category";
-			Query queryObject = getSession().createQuery(queryString);
+			Query queryObject = currentSession().createQuery(queryString);
 			return queryObject.list();
 		} catch (RuntimeException re) {
 			log.error("find all failed", re);
@@ -66,7 +66,7 @@ public class CategoryDao extends BaseHibernateDao {
 	public void update(Category category){
 		log.debug("update a Category instance");
 		try {
-			getSession().update(category);
+			currentSession().update(category);
 		} catch (RuntimeException e) {
 			log.error("update failed",e);
 			throw e;

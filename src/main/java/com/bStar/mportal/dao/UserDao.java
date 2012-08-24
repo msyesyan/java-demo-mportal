@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.bstar.mportal.model.User;
 
 @Repository
-public class UserDao extends BaseHibernateDao{
+public class UserDao extends EntryDao<User> {
 
 	private static final Logger log = LoggerFactory.getLogger(UserDao.class);
 	// property constants
@@ -23,7 +23,7 @@ public class UserDao extends BaseHibernateDao{
 		try {
 			String queryString = "from User as model where model."
 					+ propertyName + "= ?";
-			Query queryObject = getSession().createQuery(queryString);
+			Query queryObject = currentSession().createQuery(queryString);
 			queryObject.setParameter(0, value);
 			return queryObject.list();
 		} catch (RuntimeException re) {
