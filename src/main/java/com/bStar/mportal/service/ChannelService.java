@@ -38,6 +38,10 @@ public class ChannelService {
 		channelDao.update(channel);
 	}
 	
+	public Channel findByNum(Integer num) {
+		return channelDao.findByName(num);
+	}
+	
 	public void upload(File logo,ServletContext servletContext,Channel channel,String logoFileName){
 		if(logo!=null){
 			File logoDir = new File(servletContext.getRealPath("/upload/logo"));
