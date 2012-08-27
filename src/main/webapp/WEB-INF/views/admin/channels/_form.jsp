@@ -30,9 +30,11 @@
 	<div class="controls">
 		<input type="file" id="inputLogo" name="logo" />
 	</div>
-	<s:if test="%{#channel.logo != null}">
-	<div class="controls">
-		<img src="<s:url value='/upload/logo/' />${channel.logo}"/>
-	</div>
+	<s:if test="%{#channel.logo == null}">
 	</s:if>
+	<s:else>
+		<div class="controls">
+			<img src="<s:url value='/upload/logo/' />${channel.logo}"/>
+		</div>
+	</s:else>
 </div>
