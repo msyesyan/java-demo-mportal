@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity @Table(name="users")
+@Entity @Table(name="user")
 public class User {
 	
 	@Id @GeneratedValue

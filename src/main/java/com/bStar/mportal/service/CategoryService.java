@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bstar.mportal.dao.CategoryDao;
+import com.bstar.mportal.dao.AbstractEntryDao;
 import com.bstar.mportal.model.Category;
 
 @Service
 public class CategoryService {
 
 	@Autowired
-	CategoryDao categoryDao;
+	AbstractEntryDao<Category> categoryDao;
 
 	public void save(Category category) throws Exception {
 		categoryDao.save(category);
@@ -26,12 +26,16 @@ public class CategoryService {
 		categoryDao.update(category);
 	}
 	
-	public Category findById(Integer id) throws Exception {
+	public Category find(Integer id) throws Exception {
 		return categoryDao.get(id);
 	}
 
 	public List<Category> findAll() throws Exception {
 		return categoryDao.findAll();
+	}
+
+	public List<Category> findByIds(int[] categoryIds) {
+		return categoryDao.findByIds(categoryIds);
 	}
 
 }

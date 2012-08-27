@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/views/layouts/application_head.jsp" %>
 		<h1>增加频道</h1>
 		
-		<form method="post" action="<s:url value='/admin/channels/new' />">
+		<form method="post" enctype="multipart/form-data" action="<s:url value='/admin/channels/create' />">
 			<%@ include file="_form.jsp" %>
 			
 			<div class="control-group">

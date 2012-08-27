@@ -2,12 +2,12 @@
 <%@ include file="/WEB-INF/views/layouts/application_head.jsp" %>
 		<h1>编辑类别</h1>
 		
-		<form method="post" action="<s:url value='/admin/categories/edit' />">
+		<form method="post" action="<s:url value='/admin/categories/update' />">
 			<%@ include file="_form.jsp" %>
 		
 			<div class="control-group">
 				<div class="controls">
-					<input type="hidden" name="id" value="${id}" />
+					<input type="hidden" name="id" value="${category.id}" />
 					<button type="submit" class="btn">提交</button>
 				</div>
 			</div>

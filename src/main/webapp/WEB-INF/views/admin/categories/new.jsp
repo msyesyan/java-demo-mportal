@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/views/layouts/application_head.jsp" %>
 		<h1>增加类别</h1>
 		
-		<form method="post" action="<s:url value='/admin/categories/new' />">
+		<form method="post" action="<s:url value='/admin/categories/create' />">
 			<%@ include file="_form.jsp" %>
 		
 			<div class="control-group">

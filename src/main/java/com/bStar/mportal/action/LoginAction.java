@@ -1,35 +1,35 @@
 package com.bstar.mportal.action;
 
-import org.springframework.stereotype.Controller;
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import com.bstar.mportal.action.BaseAction;
 import com.bstar.mportal.model.User;
 import com.bstar.mportal.service.UserService;
 
-@Controller
+@Action
+@Result(name="success", location="/admin/channels/index", type="redirect")
 public class LoginAction extends BaseAction {
 	 
-	private static final long serialVersionUID = 3978190073352318498L;
+	private static final long serialVersionUID = -3023390698674156560L;
+	private @Autowired UserService userService;
+	
 	// input
 	private String name;
 	private String password;
-
-	private UserService userService = new UserService();
-
+	
+	
 	public String execute() throws Exception {
-		
-		System.out.println("enterLoginAction");
-
 		if (request.getMethod().equals("POST")) {
 			User user = userService.findByName(name);
 			if (user != null) {
 				if (user.getPassword().equals(password)) {
-					return "success";
+					return SUCCESS;
 				}
 			}
 		}
-		System.out.println("input");
-		return "input";
+		
+		return INPUT;
 	}
 
 	public String getName() {

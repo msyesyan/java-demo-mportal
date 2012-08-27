@@ -4,19 +4,17 @@
 	<constant name="struts.action.extension" value="action,json,," /> 
 	<constant name="struts.enable.SlashesInActionNames" value="true" />
 	<constant name="struts.convention.result.path" value="/WEB-INF/views/" />
-	<constant name="struts.convention.action.disableScanning" value="true" />
+	<constant name="struts.convention.exclude.parentClassLoader" value="false" />
 	<constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
 	
-	<package name="mportal" extends="struts-default">
-		
-	</package>
-	
-	<package name="root" extends="mportal">
-		<action name="/login" class="com.bstar.mportal.action.LoginAction">
-			<result name="input">/WEB-INF/views/login.jsp</result>
-			<result name="success" type="redirect">/admin/channels/index</result>
-		</action>
-	</package>
-	
 	<include file="struts-admin.xml"/>
+	
+	<bean type="com.opensymphony.xwork2.UnknownHandler" name="noop" class="com.bstar.mportal.action.NoopUnknownHandler" />
+	<!-- 
+	<constant name="struts.mapper.class" value="com.bstar.mportal.action.RestfulActionMapper" />
+	-->
+	
+	<unknown-handler-stack>
+		<unknown-handler-ref name="noop" />
+	</unknown-handler-stack>
 </struts>

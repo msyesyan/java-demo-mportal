@@ -2,15 +2,22 @@ package com.bstar.mportal.dao;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 
 
 @SuppressWarnings("unchecked")
-public abstract class EntryDaoSupport<T> extends HibernateDaoSupport {
+public abstract class AbstractEntryDao<T> extends HibernateDaoSupport {
 	
 	protected Class<? extends T> entityClass;
 	
-	public EntryDaoSupport() {
+	public AbstractEntryDao() {
 		Class<?> genericClazz = findGenericSuperclass(this.getClass());
 		if(genericClazz != null) {
 			ParameterizedType parameterizedType = (ParameterizedType) genericClazz.getGenericSuperclass();
@@ -59,5 +66,23 @@ public abstract class EntryDaoSupport<T> extends HibernateDaoSupport {
 
 	public void update(T entry) {
 		currentSession().update(entry);
+	}
+	
+	public List<T> findByIds(int[] ids) {
+		return this.findByIds(ArrayUtils.toObject(ids));
+	}
+
+	public List<T> findByIds(Integer[] ids) {
+		return this.findByIds(Arrays.asList(ids));
+	}
+
+	public List<T> findByIds(Collection<Integer> ids) {
+		if (ids == null || ids.isEmpty()) {
+			return new ArrayList<T>();
+		}
+		
+		Criteria criteria = currentSession().createCriteria(this.entityClass);
+		criteria.add(Restrictions.in("id", ids));
+		return criteria.list();
 	}
 }
