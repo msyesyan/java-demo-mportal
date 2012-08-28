@@ -6,8 +6,7 @@
 	<constant name="struts.convention.result.path" value="/WEB-INF/views/" />
 	<constant name="struts.convention.exclude.parentClassLoader" value="false" />
 	<constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
-	
-	<include file="struts-admin.xml"/>
+	<constant name="struts.convention.default.parent.package" value="json-default"/>
 	
 	<bean type="com.opensymphony.xwork2.UnknownHandler" name="noop" class="com.bstar.mportal.action.NoopUnknownHandler" />
 	<!-- 
